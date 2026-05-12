@@ -1,45 +1,45 @@
-var sc = [
+'use strict';
+
+const shoppingCart = [
   { product: 'bread', quantity: 6 },
   { product: 'pizza', quantity: 2 },
   { product: 'milk', quantity: 4 },
   { product: 'water', quantity: 10 },
 ];
 
-var allow = {
+const limits = {
   lisbon: 5,
   others: 7,
 };
 
-var description = '';
+let description;
 
-var check = function (city) {
-  if (sc.length > 0) {
-    var allowed;
-    if (city == 'lisbon') {
-      allowed = allow.lisbon;
-    } else {
-      allowed = allow.others;
-    }
+const check = function (city) {
+  if (!shoppingCart.length) return;
 
-    for (item of sc) {
-      if (item.quantity > allowed) item.quantity = allowed;
+  const allowed = limits[city] ?? limits.others;
+
+  for (const item of shoppingCart) {
+    if (item.quantity > allowed) {
+      item.quantity = allowed;
     }
   }
 };
-check('lisbon');
-console.log(sc);
 
-var createDescription = function () {
-  var first = sc[0];
-  var p = first.product;
-  var q = first.quantity;
+check('others');
 
-  if (sc.length > 1) {
-    description = 'Order with ' + q + ' ' + p + ', etc...';
-  } else {
-    description = 'Order with ' + q + ' ' + p + '.';
-  }
+console.log(shoppingCart);
+
+const createDescription = function () {
+  if (!shoppingCart.length) return 'Cart is empty';
+
+  const { product, quantity } = shoppingCart[0];
+
+  return shoppingCart.length > 1
+    ? `Order with ${quantity} ${product}, etc...`
+    : `Order with ${quantity} ${product}.`;
 };
-createDescription();
+
+description = createDescription();
 
 console.log(description);
