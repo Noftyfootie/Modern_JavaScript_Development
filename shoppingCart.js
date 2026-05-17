@@ -24,4 +24,4 @@ export default function (product, quantity) {
   console.log(`${quantity} ${product} added to cart`);
 }
 
-console.log();
+console.log('lockIN');
