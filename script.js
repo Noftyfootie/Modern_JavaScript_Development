@@ -134,3 +134,5 @@ import 'core-js/stable';
 // import 'core-js/stable/promise';
 
 import 'regenerator-runtime/runtime.js';
+
+console.log('');
