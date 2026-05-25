@@ -27,4 +27,6 @@ export default function (product, quantity) {
 console.log('lockIN');
 console.group();
 
-const rare = function () {};
+const rare = function () {
+  cart.map();
+};
