@@ -135,8 +135,4 @@ import 'core-js/stable';
 
 import 'regenerator-runtime/runtime.js';
 
-console.log(
-  'I think the best way to start is by defining our foundation first',
-);
-
-console.log('working');
+console.log('okay');
